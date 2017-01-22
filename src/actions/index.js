@@ -11,11 +11,13 @@ export const RECEIVE_SEARCH_RESULT = 'RECEIVE_SEARCH_RESULT'
 export function getSearchResultRequest(key_words) {
     // let url =  "http://localhost:12345/amazon_api";
     let url =  "http://ec2-54-200-195-246.us-west-2.compute.amazonaws.com:12345/amazon_api";
-            console.error(url);
+            //console.error(url);
+    let search_index = "Book";
+    let item_page = 1;
     Request.get(url)
-        .query({"optional1":key_words})
+        .query({"key_words":key_words,"search_index": search_index, "item_page": item_page})
         .then((response) => {
             let res = JSON.parse(response.text);
-            console.error(res);
+            //console.error(res);
         });
 }
