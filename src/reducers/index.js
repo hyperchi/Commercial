@@ -35,13 +35,11 @@ function posts(state = {
   }
 }
 //废弃、接收到、开始接受新闻后，将state.postsByReddit设为相关参数
-function searchQuote(state = { }, action) {
+function searchQuote(state = { test : 1 }, action) {
   switch (action.type) {
-    case INVALIDATE_REDDIT:
-    case RECEIVE_POSTS:
-    case REQUEST_POSTS:
+    case RECEIVE_SEARCH_RESULT:
       return Object.assign({}, state, {
-        [action.reddit]: posts(state[action.reddit], action)
+        state: action.data
       })
     default:
       return state

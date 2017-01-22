@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux'
-// user defined
+import { getSearchResultRequest, incrementAsync } from './actions'
+import { bindActionCreators } from 'redux'
 import './App.css';
 import Header from './components/Header'
 import Content from './components/Content'
+import * as Actions from './actions'
 
 class App extends Component {
     constructor(props) {
+        console.error(props);
         super(props);
         this.render = this.render.bind(this);
+
         this.state = {
             items: this.props.items,
             disabled: true
@@ -26,24 +30,35 @@ class App extends Component {
 
     }
 
-    handleClick() {
-        this.setState({
-            items: this.state.items.concat('Item ' + this.state.items.length)
-        })
+    //每次接受新的props触发
+    componentWillReceiveProps(nextProps) {
+        console.log('执行componentWillReceiveProps',nextProps);
+        // if (nextProps.selectedReddit !== this.props.selectedReddit) {
+        // const { dispatch, selectedReddit } = nextProps
+        // dispatch(fetchPostsIfNeeded(selectedReddit))
+        // }
     }
 
     render() {
-    return (
-      <div className="">
-          <Header></Header>
-          {/*<Content></Content>*/}
-      </div>
-    );
-  }
+        const {searchQuote, incrementAsync} = this.props;
+
+        // alert(this.props.dispatch);
+        return (
+        <div className="">
+            <Header actions={Actions}></Header>
+            {/*<Content></Content>*/}
+            <div className="search-bar-submit"
+                onClick={incrementAsync}>
+                asd{searchQuote.data}
+            </div>
+            {searchQuote.data}
+        </div>
+        );
+    }
 }
 
 function mapStateToProps(state) {
-  console.error(state);
+  console.error("aa", state);
 //   const { selectedReddit, postsByReddit } = state
 //   console.error(postsByReddit);
 //   const {
@@ -66,6 +81,12 @@ function mapStateToProps(state) {
 //   }
     return state; 
 }
+App.propTypes = {
 
-export default connect(mapStateToProps)(App)
+  dispatch: PropTypes.func.isRequired
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Actions, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 

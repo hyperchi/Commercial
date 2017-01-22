@@ -5,7 +5,10 @@ import AutosuggestHighlightParse from 'autosuggest-highlight/match'
 // user defined
 import logo from '../../assets/logo.svg';
 import './index.css'
-import {getSearchResultRequest} from '../../actions'
+import { getSearchResultRequest, incrementAsync } from '../../actions'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as Actions from '../../actions'
 const languages = [
     {
         first: 'Charlie',
@@ -52,34 +55,9 @@ const languages = [
     );     
 
  };
-export default class SearchBar extends Component {
 
- // Teach Autosuggest how to calculate suggestions for any given input value.
-
-// function renderSuggestion(suggestion, {query}) {
-//     const suggestionText = `${suggestion.first} ${suggestion.last}`;
-//     const matches = AutosuggestHighlightMatch(suggestionText, query);
-//     const parts = AutosuggestHighlightParse(suggestionText, matches);
-
-//     return (
-//         <span className={'suggestion-content ' + suggestion.twitter}>
-//       <span className="name">
-//         {
-//             parts.map((part, index) => {
-//                 const className = part.highlight ? 'highlight' : null;
-
-//                 return (
-//                     <span className={className} key={index}>{part.text}</span>
-//                 );
-//             })
-//         }
-//       </span>
-//     </span>
-//     );
-// };
-
-//  export default class Example extends React.Component {
-   constructor() {
+class SearchBar extends Component {
+  constructor() {
      super();
 
      // Autosuggest is a controlled component.
@@ -115,7 +93,7 @@ export default class SearchBar extends Component {
    };
     onSearch = () => {
         let searchWords = this.state.value;
-        let searchResults = getSearchResultRequest(searchWords);
+        let searchResults = this.props.incrementAsync(searchWords);
         console.error(searchResults);
         return searchResults;
     };
@@ -129,6 +107,7 @@ export default class SearchBar extends Component {
        onChange: this.onChange
      };
 
+      const {searchQuote, incrementAsync} = this.props;
      // Finally, render it!
      return (
        <div className="react-autosuggest__container">
@@ -140,10 +119,45 @@ export default class SearchBar extends Component {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
           />
-          <div className="search-bar-submit"
-                onClick={this.onSearch}
-          />
-        </div>
-     );
-   }
+            <div className="search-bar-submit"
+                  onClick={this.onSearch}
+            />
+          </div>
+      );
+                  // onClick={incrementAsync}
+    }
  }
+
+function mapStateToProps(state) {
+    console.error("aa", state);
+//   const { selectedReddit, postsByReddit } = state
+//   console.error(postsByReddit);
+//   const {
+//     isFetching,
+//     lastUpdated,
+//     items: posts
+//   } = postsByReddit[selectedReddit] || {
+//     isFetching: true,
+//     items: []
+//   }
+//   console.error(isFetching);
+//   console.error(lastUpdated);
+//   console.error(posts);
+
+//   return {
+//     selectedReddit,
+//     posts,
+//     isFetching,
+//     lastUpdated
+//   }
+    return state; 
+} 
+SearchBar.propTypes = {
+
+  dispatch: PropTypes.func.isRequired
+}
+function mapDispatchToProps(dispatch) {
+  // alert(dispatch);
+  return bindActionCreators(Actions, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)

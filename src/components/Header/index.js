@@ -9,6 +9,7 @@ import {getSearchResultRequest} from '../../actions'
 import SearchBar from '../SearchBar'
 export default class Header extends Component {
     render() {
+        const { actions } = this.props;
         return (
 
             <div className="app-header">
@@ -17,7 +18,7 @@ export default class Header extends Component {
                     <h2>Amazon Discounts</h2>
                     <div className="btn">place-holder</div>
                     <div className="btn">place-holder</div>
-                    <SearchBar></SearchBar>
+                    <SearchBar actions={actions}></SearchBar>
                 </div>
             </div>)
     }
