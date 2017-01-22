@@ -9,8 +9,8 @@ export const RECEIVE_SEARCH_RESULT = 'RECEIVE_SEARCH_RESULT';
 
 // request to call api for search
 export function getSearchResultRequest(key_words) {
-    // let url =  "http://localhost:12345/amazon_api";
-    let url =  "http://ec2-54-200-195-246.us-west-2.compute.amazonaws.com:12345/amazon_api";
+    let url =  "http://localhost:12345/amazon_api";
+    //let url =  "http://ec2-54-200-195-246.us-west-2.compute.amazonaws.com:12345/amazon_api";
             //console.error(url);
     let search_index = "Book";
     let item_page = 1;

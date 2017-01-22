@@ -7,9 +7,9 @@ import {getSearchResultRequest} from '../../actions'
 export default class Content extends Component {
     constructor() {
         // when the constroctor is initialized call top seller
-        super(props);
+        super();
         this.state = {
-            images: props.images
+
         };
 
     }
