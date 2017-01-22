@@ -2,3 +2,8 @@ body {
   background-color: #0C0C0C;
   font-family: 'Noto Sans', sans-serif;
 }
+
+.content-image {
+    width: 30%;
+   height: 20%;
+}
