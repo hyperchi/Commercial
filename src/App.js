@@ -51,34 +51,14 @@ class App extends Component {
                 onClick={incrementAsync}>
                 asd{searchQuote.data}
             </div>
-            {searchQuote.data}
         </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-  console.error("aa", state);
-//   const { selectedReddit, postsByReddit } = state
-//   console.error(postsByReddit);
-//   const {
-//     isFetching,
-//     lastUpdated,
-//     items: posts
-//   } = postsByReddit[selectedReddit] || {
-//     isFetching: true,
-//     items: []
-//   }
-//   console.error(isFetching);
-//   console.error(lastUpdated);
-//   console.error(posts);
+    console.error("aa", state);
 
-//   return {
-//     selectedReddit,
-//     posts,
-//     isFetching,
-//     lastUpdated
-//   }
     return state; 
 }
 App.propTypes = {

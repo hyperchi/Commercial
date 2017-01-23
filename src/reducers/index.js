@@ -39,8 +39,7 @@ function searchQuote(state = { test : 1 }, action) {
   switch (action.type) {
     case RECEIVE_SEARCH_RESULT:
       return Object.assign({}, state, {
-
-        state: action.data
+        data: action.data
       })
 
     default:

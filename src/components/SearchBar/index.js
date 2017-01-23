@@ -70,7 +70,13 @@ class SearchBar extends Component {
        suggestions: []
      };
    }
-
+   componentWillReceiveProps(nextProps) {
+        console.log('执行componentWillReceiveProps',nextProps);
+        // if (nextProps.selectedReddit !== this.props.selectedReddit) {
+        // const { dispatch, selectedReddit } = nextProps
+        // dispatch(fetchPostsIfNeeded(selectedReddit))
+        // }
+   }
    onChange = (event, { newValue }) => {
      this.setState({
        value: newValue
@@ -93,7 +99,7 @@ class SearchBar extends Component {
    };
     onSearch = () => {
         let searchWords = this.state.value;
-        let searchResults = this.props.incrementAsync(searchWords);
+        let searchResults = this.props.getSearchResultRequest(searchWords);
         console.error(searchResults);
         return searchResults;
     };
@@ -107,7 +113,7 @@ class SearchBar extends Component {
        onChange: this.onChange
      };
 
-      const {searchQuote, incrementAsync} = this.props;
+      const {searchQuote} = this.props;
      // Finally, render it!
      return (
        <div className="react-autosuggest__container">
@@ -120,8 +126,12 @@ class SearchBar extends Component {
             inputProps={inputProps}
           />
             <div className="search-bar-submit"
-                  onClick={this.onSearch}
-            />
+                  onClick={this.onSearch}>
+
+            </div>
+            <div>
+            {JSON.stringify(searchQuote.data)}
+            </div>
           </div>
       );
                   // onClick={incrementAsync}
