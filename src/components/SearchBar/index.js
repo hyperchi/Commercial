@@ -99,9 +99,7 @@ class SearchBar extends Component {
    };
     onSearch = () => {
         let searchWords = this.state.value;
-        let searchResults = this.props.getSearchResultRequest(searchWords);
-        console.error(searchResults);
-        return searchResults;
+        this.props.getSearchResultRequest(searchWords);
     };
    render() {
      const { value, suggestions } = this.state;
@@ -129,9 +127,6 @@ class SearchBar extends Component {
                   onClick={this.onSearch}>
 
             </div>
-            <div>
-            {JSON.stringify(searchQuote.data)}
-            </div>
           </div>
       );
                   // onClick={incrementAsync}
@@ -139,27 +134,27 @@ class SearchBar extends Component {
  }
 
 function mapStateToProps(state) {
-    console.error("aa", state);
-//   const { selectedReddit, postsByReddit } = state
-//   console.error(postsByReddit);
-//   const {
-//     isFetching,
-//     lastUpdated,
-//     items: posts
-//   } = postsByReddit[selectedReddit] || {
-//     isFetching: true,
-//     items: []
-//   }
-//   console.error(isFetching);
-//   console.error(lastUpdated);
-//   console.error(posts);
+//     console.error("aa", state);
+// //   const { selectedReddit, postsByReddit } = state
+// //   console.error(postsByReddit);
+// //   const {
+// //     isFetching,
+// //     lastUpdated,
+// //     items: posts
+// //   } = postsByReddit[selectedReddit] || {
+// //     isFetching: true,
+// //     items: []
+// //   }
+// //   console.error(isFetching);
+// //   console.error(lastUpdated);
+// //   console.error(posts);
 
-//   return {
-//     selectedReddit,
-//     posts,
-//     isFetching,
-//     lastUpdated
-//   }
+// //   return {
+// //     selectedReddit,
+// //     posts,
+// //     isFetching,
+// //     lastUpdated
+// //   }
     return state; 
 } 
 SearchBar.propTypes = {

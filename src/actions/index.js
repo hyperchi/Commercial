@@ -40,18 +40,19 @@ export function getSearchResultRequest(key_words) {
         console.error(dispatch);
         // let url =  "http://localhost:12345/amazon_api";
         let url =  "http://ec2-54-200-195-246.us-west-2.compute.amazonaws.com:12345/amazon_api";
-        let search_index = "Book";
+        let search_index = "Books";
         let item_page = 1;    
-        // return Request.get(url)
-        //     .query({"key_words":key_words,"search_index": search_index, "item_page": item_page})
-        //     .then((response) => JSON.parse(response.text))
-        //     // .then(json => dispatch(updateSearchResult(json)));
+        Request.get(url)
+            .query({"key_words":key_words,"search_index": search_index, "item_page": item_page})
+            .then((response) => JSON.parse(response.text))
+            .then(json => dispatch(updateSearchResult(json)));
         //     .then(json => dispatch(updateSearchResult({a:1})));
         // }
+        
         // return dispatch => {
-            setTimeout(() => {
-                dispatch(updateSearchResult({a:1}));
-            }, 1000);
+            // setTimeout(() => {
+            //     dispatch(updateSearchResult({a:1}));
+            // }, 1000);
         // }
     }
 

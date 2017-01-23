@@ -49,15 +49,15 @@ class App extends Component {
             {/*<Content></Content>*/}
             <div className="search-bar-submit"
                 onClick={incrementAsync}>
-                asd{searchQuote.data}
+
             </div>
+            <Content></Content>
         </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-    console.error("aa", state);
 
     return state; 
 }
