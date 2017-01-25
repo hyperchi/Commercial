@@ -7,7 +7,7 @@ import logo from '../../assets/logo.svg';
 import './index.css'
 import {getSearchResultRequest} from '../../actions'
 import SearchBar from '../SearchBar'
-export default class Header extends Component {
+export default class Header extends Component {      
     render() {
         const { actions } = this.props;
         return (

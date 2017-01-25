@@ -57,7 +57,13 @@ const languages = [
  };
 
 class SearchBar extends Component {
-  constructor() {
+    //初始化渲染后触发
+    componentDidMount() {
+        console.log('执行componentDidMount');
+
+        this.props.getSearchResultRequest("best seller");
+    }    
+   constructor() {
      super();
 
      // Autosuggest is a controlled component.
