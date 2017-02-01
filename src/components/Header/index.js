@@ -13,12 +13,17 @@ export default class Header extends Component {
         return (
 
             <div className="app-header">
-                <img src={logo} className="app-logo" alt="logo"/>
+                {/*<img src={logo} className="app-logo" alt="logo"/>*/}
                 <div className="container">
-                    <h2>Amazon Discounts</h2>
-                    <div className="btn">place-holder</div>
-                    <div className="btn">place-holder</div>
-                    <SearchBar actions={actions}></SearchBar>
+                    <h2 className="app-title">ChillyBee</h2>
+                    {/*<div className="btn">place-holder</div>*/}
+
+                    {/*<div className="btn">place-holder</div>*/}
+                    <div className="app-search-bar">
+                        <div className="app-search-bar-wrapper">
+                            <SearchBar actions={actions}></SearchBar>
+                        </div>
+                    </div>
                 </div>
             </div>)
     }

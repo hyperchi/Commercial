@@ -112,7 +112,7 @@ class SearchBar extends Component {
 
      // Autosuggest will pass through all these props to the input element.
      const inputProps = {
-       placeholder: 'Type a programming language',
+       placeholder: 'Search brands and stores...',
        value,
        onChange: this.onChange
      };

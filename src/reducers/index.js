@@ -40,7 +40,7 @@ function searchQuote(state = { data : {} }, action) {
     case RECEIVE_SEARCH_RESULT:
       return Object.assign({}, state, {
         data: action.data
-      })
+      });
 
     default:
       return state

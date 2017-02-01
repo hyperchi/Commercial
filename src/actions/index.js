@@ -38,7 +38,7 @@ export function getSearchResultRequest(key_words) {
 
     return (dispatch, getState) => {
         console.error(dispatch);
-        // let url =  "http://localhost:12345/amazon_api";
+        //let url =  "http://localhost:12345/amazon_api";
         let url =  "http://ec2-54-200-195-246.us-west-2.compute.amazonaws.com:12345/amazon_api";
         let search_index = "Books";
         let item_page = 1;    
