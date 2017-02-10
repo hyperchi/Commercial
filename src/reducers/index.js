@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import {
   RECEIVE_SEARCH_RESULT,
   SELECT_REDDIT, INVALIDATE_REDDIT,
@@ -48,7 +49,8 @@ function searchQuote(state = { data : {} }, action) {
 }
 //将两个reducer合并成一个reducer,也就将全局的state加上postsByReddit,selectedReddit两个属性，每个属性都有自己的state
 const rootReducer = combineReducers({
-  searchQuote
+  searchQuote,
+  routing: routerReducer
 });
 
 export default rootReducer

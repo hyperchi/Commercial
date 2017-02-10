@@ -51,7 +51,7 @@ class App extends Component {
                 onClick={incrementAsync}>
 
             </div>
-            <Content></Content>
+            {this.props.children}
         </div>
         );
     }
