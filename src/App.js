@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getSearchResultRequest, incrementAsync } from './actions'
 import { bindActionCreators } from 'redux'
 import './App.css';
+import './styles/_fonts.css';
 import Header from './components/Header'
 import Content from './components/Content'
 import * as Actions from './actions'

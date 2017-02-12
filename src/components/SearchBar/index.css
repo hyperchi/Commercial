@@ -47,9 +47,7 @@
 /*.is-focused .search-bar-submit {*/
     /*border-color: #ccc;*/
 /*}*/
-body {
-    font-family: Helvetica, sans-serif;
-}
+
 
 .react-autosuggest__container {
     position: relative;
@@ -69,7 +67,7 @@ body {
     width: 400px;
     /*height: 30px;*/
     /*padding: 10px 20px;*/
-    font-family: Helvetica, sans-serif;
+
     font-weight: 300;
     font-size: 16px;
     /*border: 1px solid #aaa;*/
@@ -96,7 +94,7 @@ body {
     width: 280px;
     border: 1px solid #aaa;
     background-color: #fff;
-    font-family: Helvetica, sans-serif;
+
     font-weight: 300;
     font-size: 16px;
     border-bottom-left-radius: 4px;

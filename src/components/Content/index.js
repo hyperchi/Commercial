@@ -18,7 +18,7 @@ class Content extends Component {
         this.setState({ data: nextProps.searchQuote.data })
     }
     showDetail(key, event) {
-        alert('showDetail ' + key);
+        // alert('showDetail ' + key);
         event.preventDefault();
         const path = '/detail/' + key;
         browserHistory.push(path);    
@@ -39,8 +39,6 @@ class Content extends Component {
         // console.error("#",this.props.searchQuote);
         return (
                 <div className="app-content">
-
-                    {this.state.data.Item != undefined}
                     {this.state.data.Item ? this.createItem(this.state.data.Item) : ''}
                 </div>
         )
