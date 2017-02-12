@@ -1,6 +1,7 @@
 import React from 'react'
 import { IndexRoute, Route, Link, IndexRedirect, Redirect } from 'react-router'
 import Content from './components/Content'
+import Detail from './components/Detail'
 /* containers */
 import AppContainer from './App'
 // import Packages from './containers/Packages'
@@ -13,6 +14,7 @@ import AppContainer from './App'
 const routes = (
   <Route path='/' component={AppContainer}>
     <IndexRoute component={Content}/>
+    <Route path='/detail/:index' component={Detail} />
   </Route>
 )
 

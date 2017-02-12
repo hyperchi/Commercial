@@ -10,9 +10,8 @@ import * as Actions from './actions'
 
 class App extends Component {
     constructor(props) {
-        console.error(props);
         super(props);
-        this.render = this.render.bind(this);
+
 
         this.state = {
             items: this.props.items,
