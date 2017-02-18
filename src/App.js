@@ -18,6 +18,7 @@ class App extends Component {
             items: this.props.items,
             disabled: true
         };
+        this.props.getSearchResultRequest("best seller");        
     }
 
     componentDidMount() {

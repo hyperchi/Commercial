@@ -59,9 +59,9 @@ const languages = [
 class SearchBar extends Component {
     //初始化渲染后触发
     componentDidMount() {
-        console.log('执行componentDidMount');
+        // console.log('执行componentDidMount');
 
-        this.props.getSearchResultRequest("best seller");
+
     }    
    constructor() {
      super();

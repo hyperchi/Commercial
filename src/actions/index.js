@@ -46,14 +46,6 @@ export function getSearchResultRequest(key_words) {
             .query({"key_words":key_words,"search_index": search_index, "item_page": item_page})
             .then((response) => JSON.parse(response.text))
             .then(json => dispatch(updateSearchResult(json)));
-        //     .then(json => dispatch(updateSearchResult({a:1})));
-        // }
-        
-        // return dispatch => {
-            // setTimeout(() => {
-            //     dispatch(updateSearchResult({a:1}));
-            // }, 1000);
-        // }
     }
 
 }

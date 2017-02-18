@@ -35,16 +35,16 @@ class Content extends Component {
                 let content = <a href="">{data[index]["ItemAttributes"]["Author"][key]}</a>;
                 if (key != data[index]["ItemAttributes"]["Author"].length - 1) 
                     res.push(
-                        <span>{content}(Author),</span>
+                        <span className='author-box'>{content}(Author),</span>
                     );
                 else
                     res.push(
-                        <span>{content}(Author)</span>
+                        <span className='author-box'>{content}(Author)</span>
                     );
             }
         } else {
             res.push(
-                <span><a href="">{data[index]["ItemAttributes"]["Author"]}</a>(Author)</span>
+                <span className='author-box'><a href="">{data[index]["ItemAttributes"]["Author"]}</a>(Author)</span>
             )            
         }    
         return res;
