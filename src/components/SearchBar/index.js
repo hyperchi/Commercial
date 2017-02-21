@@ -104,6 +104,7 @@ class SearchBar extends Component {
      });
    };
     onSearch = () => {
+      console.error(this.props);
         let searchWords = this.state.value;
         this.props.getSearchResultRequest(searchWords);
     };

@@ -2,11 +2,11 @@ import React, {Component, PropTypes} from 'react';
 
 // user defined
 import './index.css';
-import {getSearchResultRequest} from '../../actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../actions'
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
+// import { push } from 'react-router-redux'
 
 class Content extends Component {
     constructor(props) {
@@ -17,19 +17,14 @@ class Content extends Component {
     componentWillReceiveProps(nextProps) {
         this.setState({ data: nextProps.searchQuote.data })
     }
-    showDetail(key, event) {
-        // alert('showDetail ' + key);
-        event.preventDefault();
-        const path = '/detail/' + key;
-        browserHistory.push(path);    
-    }
+
     createItem(data) {
         console.error("4", data);
         let res = [];
         for (let key in data) {
             if (data[key]["Image"] && data[key]["Image"]["LargeImage"])
                 res.push(
-                <div className='item' onClick={this.showDetail.bind(this, key)}>
+                <div className='item' onClick={this.props.showDetail.bind(this, key)}>
                     <img src={data[key]["Image"]["LargeImage"]["URL"]}/>
                 </div>);
         }  
