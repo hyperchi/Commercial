@@ -37,11 +37,13 @@ class Async extends Component {
        }
     }
     render() {
-        let className = this.state.loadingNumber !== 0 ? " " : "hide";
+        let className = this.state.loadingNumber !== 0 ? "VZ_Loading" : "hide";
         return (
-            <div  id="myProgress" className={className}>
-                <div ref="progress" id="progressBar"></div>
-                <h1>Fetching data, please wait.</h1>
+            <div className={className}>
+                <div id="myProgress">
+                    <div ref="progress" id="progressBar"></div>
+                    <h1>Fetching data, please wait.</h1>
+                </div>
             </div>
         );
     }

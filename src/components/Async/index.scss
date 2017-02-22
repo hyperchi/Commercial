@@ -1,13 +1,29 @@
+@import "../../styles/_common";
+
+.VZ_Loading {
+	background-color: rgba(40, 72, 90, 0.8);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+  height: 100vh;
+	overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	transform: translate3d(0, 0, 21px); /* Fix for iOS & Safari */
+	z-index: 16;
+
 	#myProgress {
-        position: absolute;
-        width: 100vw;
-        height: 4px;
-        background-color: #ddd;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        float: left;
+		position: absolute;
+    width: 100vw;
+    height: 4px;
+    background-color: #ddd;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		float: left;
 	}
 	#progressBar {
 	  position: absolute;
@@ -20,6 +36,8 @@
 		color: #fff;
 		font-size: 2em;
 	}
-    .hide {
-        display: none;
-    }
+}
+
+.hide {
+    display: none;
+}
