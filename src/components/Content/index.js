@@ -30,9 +30,9 @@ class Content extends Component {
     render() {
         // console.error("#",this.props.searchQuote);
         return (
-                <div className="app-content">
-                    {this.state.data.Item ? this.createItem(this.state.data.Item) : ''}
-                </div>
+            <div className="app-content">
+                {this.state.data.Item ? this.createItem(this.state.data.Item) : ''}
+            </div>
         )
     }
 }

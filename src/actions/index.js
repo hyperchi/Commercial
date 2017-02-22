@@ -6,7 +6,8 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const SELECT_REDDIT = 'SELECT_REDDIT';
 export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT';
 export const RECEIVE_SEARCH_RESULT = 'RECEIVE_SEARCH_RESULT';
-
+export const LOAD_START = 'LOAD_START';
+export const LOAD_SUCCESS = 'LOAD_SUCCESS';
 function updateSearchResult(data) {
   return {
     type: RECEIVE_SEARCH_RESULT,
@@ -41,10 +42,14 @@ export function getSearchResultRequest(key_words) {
         //let url =  "http://localhost:12345/amazon_api";
         let url =  "http://ec2-54-200-195-246.us-west-2.compute.amazonaws.com:12345/amazon_api";
         let search_index = "Books";
-        let item_page = 1;    
+        let item_page = 1;  
+        dispatch({type: LOAD_START});  
         Request.get(url)
             .query({"key_words":key_words,"search_index": search_index, "item_page": item_page})
-            .then((response) => JSON.parse(response.text))
+            .then((response) => {
+              dispatch({type: LOAD_SUCCESS});  
+              return JSON.parse(response.text)
+            })
             .then(json => dispatch(updateSearchResult(json)));
     }
 

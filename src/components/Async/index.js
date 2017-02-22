@@ -11,29 +11,50 @@ class Async extends Component {
     constructor(props) {
         // when the constroctor is initialized call top seller
         super(props);
+        this.state = { loadingNumber: this.props.asyns.loadingNumber }
 
+    }
+    componentDidMount () {
+       this.move();
     }
     componentWillReceiveProps(nextProps) {
-        this.setState({ data: nextProps.searchQuote.data })
+        this.setState({ loadingNumber: nextProps.asyns.loadingNumber })
+        this.move();
     }
-
+    move(){
+      let progressElement = this.refs.progress;
+      if (!progressElement) return;
+      let width = 2;
+      let id = setInterval(frame, 50);
+       function frame() {
+           console.error(width);
+         if (width >= 100) {
+           clearInterval(id);
+         } else {
+           width++;
+           progressElement.style.width = (width-2) + '%';
+         }
+       }
+    }
     render() {
+        let className = this.state.loadingNumber !== 0 ? " " : "hide";
         return (
-                <div className="app-content">
-                    {this.state.data.Item ? this.createItem(this.state.data.Item) : ''}
-                </div>
-        )
+            <div  id="myProgress" className={className}>
+                <div ref="progress" id="progressBar"></div>
+                <h1>Fetching data, please wait.</h1>
+            </div>
+        );
     }
 }
 
 function mapStateToProps(state) {
     return state; 
 } 
-Content.propTypes = {
+Async.propTypes = {
 
 //   dispatch: PropTypes.func.isRequired
 }
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch)
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Content)
+export default connect(mapStateToProps, mapDispatchToProps)(Async)

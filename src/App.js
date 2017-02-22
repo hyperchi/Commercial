@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import './App.css';
 import './styles/fonts.css';
 import Header from './components/Header'
-import Content from './components/Content'
+import Async from './components/Async'
 import * as Actions from './actions'
 
 class App extends Component {
@@ -41,15 +41,16 @@ class App extends Component {
 
         // alert(this.props.dispatch);
         return (
-        <div className="">
-            <Header actions={Actions}></Header>
-            {/*<Content></Content>*/}
-            <div className="search-bar-submit"
-                onClick={incrementAsync}>
+            <div className="">
+                <Header actions={Actions}></Header>
+                {/*<Content></Content>*/}
+                <Async/>
+                <div className="search-bar-submit"
+                    onClick={incrementAsync}>
 
+                </div>
+                {this.props.children}
             </div>
-            {this.props.children}
-        </div>
         );
     }
 }
