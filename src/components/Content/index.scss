@@ -1,5 +1,8 @@
+@import "../../styles/_common";
 
 .app-content {
+  background-color: $blk;
+  // @extend %test;
   display: flex;
   align-content: space-between;
   align-content: center;

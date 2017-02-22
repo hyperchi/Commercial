@@ -34,10 +34,6 @@ class App extends Component {
     //每次接受新的props触发
     componentWillReceiveProps(nextProps) {
         console.log('执行componentWillReceiveProps',nextProps);
-        // if (nextProps.selectedReddit !== this.props.selectedReddit) {
-        // const { dispatch, selectedReddit } = nextProps
-        // dispatch(fetchPostsIfNeeded(selectedReddit))
-        // }
     }
 
     render() {
@@ -64,7 +60,6 @@ function mapStateToProps(state) {
 }
 App.propTypes = {
 
-  dispatch: PropTypes.func.isRequired
 }
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch)
