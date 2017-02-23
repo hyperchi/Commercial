@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux'
 import { getSearchResultRequest, incrementAsync } from './actions'
 import { bindActionCreators } from 'redux'
-import './App.css';
-import './styles/fonts.css';
 import Header from './components/Header'
 import Async from './components/Async'
 import * as Actions from './actions'
+import './App.css';
+import './styles/fonts.css';
+import './styles/font-awesome.min.css';
 
 class App extends Component {
     constructor(props) {

@@ -42,7 +42,6 @@ class Async extends Component {
             <div className={className}>
                 <div id="myProgress">
                     <div ref="progress" id="progressBar"></div>
-                    <h1>Fetching data, please wait.</h1>
                 </div>
             </div>
         );
