@@ -27,7 +27,6 @@ class Async extends Component {
       let width = 2;
       let id = setInterval(frame, 50);
        function frame() {
-           console.error(width);
          if (width >= 100) {
            clearInterval(id);
          } else {

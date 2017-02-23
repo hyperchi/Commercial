@@ -8,7 +8,8 @@ import Async from './components/Async'
 import * as Actions from './actions'
 import './App.css';
 import './styles/fonts.css';
-import './styles/font-awesome.min.css';
+import './styles/input.css';
+import './styles/font-awesome/font-awesome.min.css';
 
 class App extends Component {
     constructor(props) {
