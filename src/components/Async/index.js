@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component, PropTypes, PureComponent} from 'react';
 
 // user defined
 import './index.css';
@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux'
 import * as Actions from '../../actions'
 
 
-class Async extends Component {
+class Async extends PureComponent{
     constructor(props) {
         // when the constroctor is initialized call top seller
         super(props);
