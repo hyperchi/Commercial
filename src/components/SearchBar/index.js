@@ -130,13 +130,12 @@ class SearchBar extends Component {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
           />
-            <div className="search-bar-submit"
-                  onClick={this.onSearch}>
-
+            <div className="search-bar-submit" onClick={this.onSearch}>
+                <i className="fa fa-search" aria-hidden="true"></i>
             </div>
-          </div>
+        </div>
       );
-                  // onClick={incrementAsync}
+
     }
  }
 
